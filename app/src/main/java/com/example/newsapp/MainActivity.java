@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.newsapp.models.NewsApiResponse;
@@ -12,7 +13,7 @@ import com.example.newsapp.models.NewsHeadlines;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SelectListener{
 
     RecyclerView recyclerView;
     CustomAdapter adapter;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             recyclerView = findViewById(R.id.recyler_main);
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this,1));
-            adapter = new CustomAdapter(MainActivity.this,list);
+            adapter = new CustomAdapter(MainActivity.this,list,MainActivity.this);
             recyclerView.setAdapter(adapter);
             progressDialog.dismiss();
         }
@@ -46,6 +47,11 @@ public class MainActivity extends AppCompatActivity {
 
         }
     };
+
+    @Override
+    public void OnNewsClicked(NewsHeadlines newsHeadlines) {
+        startActivity(new Intent(MainActivity.this,NewsDetail.class).putExtra("headline",newsHeadlines));
+    }
 
     /*private void showNews(List<NewsHeadlines> list) {
         recyclerView = findViewById(R.id.recyler_main);
