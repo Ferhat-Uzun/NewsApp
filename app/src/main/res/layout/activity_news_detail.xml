@@ -43,7 +43,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:textColor="@color/purple_500"
+                        android:textColor="#830303"
                         android:textSize="16sp"/>
                     <TextView
                         android:id="@+id/textDetailTime"
@@ -58,6 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textDetailDetail"
+                android:padding="12dp"
                 android:textSize="20sp"
                 android:textColor="@color/black"
                 android:layout_marginTop="10dp"/>
@@ -65,6 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textDetailContent"
+                android:padding="12dp"
                 android:textSize="18sp"
                 android:textColor="@color/black"
                 android:layout_marginTop="10dp"/>
